@@ -27,7 +27,7 @@ public class CartaAtaque extends Carta{
     public String getObjetivo(){
         return objetivo;
     }
-     public void setDanio(int danio){
+    public void setDanio(int danio){
         if(danio >= 0){
             this.danio = danio;
         }
@@ -45,9 +45,13 @@ public class CartaAtaque extends Carta{
     @Override 
     public void mostrarInformacion(){
         System.out.println("---------------------------");
-        super.mostrarInformacion();
+        System.out.println("Identificador: " + getIdentificador());
+        System.out.println("Nombre: " + getNombre());
+        System.out.println("Costo de Energia: " + getCostoEnergia());
+        System.out.println("Rareza: " + getRareza());
+        System.out.println("Estado: " + getEstado());
         System.out.println("Daño: " + danio);
-        System.out.println("Tipo de Ataque : " + tipoAtaque);
+        System.out.println("Tipo de Ataque: " + tipoAtaque);
         System.out.println("Objetivo: " + objetivo);
         System.out.println("---------------------------");
     }

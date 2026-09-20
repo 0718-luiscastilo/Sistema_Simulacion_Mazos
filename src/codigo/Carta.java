@@ -1,6 +1,6 @@
 package codigo;
 
-public class Carta {
+public abstract class Carta {
     private String identificador;
     private String nombre;
     private int costoEnergia;
@@ -46,9 +46,9 @@ public class Carta {
             this.nombre = nombre;
         }
     }
-    public void setCostoEnergia(int costoEnrergia){
-        if(costoEnrergia >= 0){
-            this.costoEnergia = costoEnrergia;
+    public void setCostoEnergia(int costoEnergia){
+        if(costoEnergia >= 0){
+            this.costoEnergia = costoEnergia;
         }
     }
     public void setRareza(String rareza){
@@ -61,14 +61,6 @@ public class Carta {
             this.estado = estado;
         }
     }
-    public void mostrarInformacion(){
-        System.out.println("---------------------------");
-        System.out.println("Identificador: " + identificador);
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Costo de Energia: " + costoEnergia);
-        System.out.println("Rareza: " + rareza);
-        System.out.println("Estado: " + estado);
-        System.out.println("---------------------------");
-    }
+    public abstract void mostrarInformacion();
     
 }
