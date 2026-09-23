@@ -1,0 +1,167 @@
+# 1. Título del ejercicio
+
+## 🎮 Sistema de Construcción y Simulación de Mazos
+
+# 2. Descripción del problema
+
+Desarrolla un programa en **Java** que simule el sistema de construcción y gestión de mazos de un videojuego de estrategia basado en cartas.
+
+El jugador dispone de diferentes tipos de cartas que pueden utilizarse durante una partida. Cada carta posee características generales, pero dependiendo de su tipo puede tener atributos y comportamientos específicos.
+
+El sistema debe permitir registrar cartas, construir un mazo, consultar información, activar cartas y calcular diferentes estadísticas del mazo.
+
+El programa debe estar diseñado utilizando **Programación Orientada a Objetos**, de manera que los diferentes tipos de cartas puedan ser tratados mediante una referencia común y cada tipo pueda comportarse de acuerdo con sus propias características.
+
+# 3. Requisitos funcionales
+
+- Crear una clase abstracta que represente una **Carta**.
+
+- La clase base debe manejar como mínimo:
+  - Identificador.
+  - Nombre.
+  - Costo de energía.
+  - Rareza.
+  - Estado de la carta.
+
+- Implementar diferentes tipos de cartas mediante **herencia**. El sistema debe manejar como mínimo:
+  - Carta de Ataque.
+  - Carta de Defensa.
+  - Carta de Habilidad.
+
+- Cada tipo de carta debe poseer al menos **un atributo propio** que no exista en las demás clases.
+
+- La clase base debe contener al menos un **método abstracto** relacionado con el comportamiento de la carta.
+
+- Cada clase derivada debe proporcionar su propia implementación del comportamiento correspondiente.
+
+- Crear al menos una **interfaz** relacionada con una capacidad que solamente algunas cartas puedan realizar.
+
+- Implementar la interfaz únicamente en las clases que correspondan.
+
+- Utilizar **constructores** para inicializar los objetos.
+
+- Implementar al menos un constructor sobrecargado para alguna de las clases.
+
+- Utilizar `this` para diferenciar atributos de parámetros cuando corresponda.
+
+- Aplicar **encapsulamiento**, manteniendo los atributos protegidos mediante modificadores de acceso apropiados.
+
+- Implementar **getters y setters** para los atributos que deban poder consultarse o modificarse.
+
+- Implementar al menos un método sobrecargado relacionado con la gestión o comportamiento de las cartas.
+
+- Crear un sistema que permita registrar hasta **20 cartas disponibles**.
+
+- Crear un mazo para el jugador con una capacidad máxima de **8 cartas**.
+
+- Permitir agregar cartas disponibles al mazo.
+
+- No permitir agregar una carta al mazo si el límite de 8 cartas ya fue alcanzado.
+
+- No permitir agregar dos veces la misma carta utilizando el mismo identificador.
+
+- Permitir eliminar una carta del mazo mediante su identificador.
+
+- Permitir consultar todas las cartas que actualmente forman parte del mazo.
+
+- Permitir buscar una carta mediante su identificador.
+
+- Permitir buscar cartas mediante su nombre.
+
+- Mostrar información diferente dependiendo del tipo de carta.
+
+- El sistema debe utilizar **polimorfismo** para trabajar con los diferentes tipos de cartas mediante una referencia de la clase base.
+
+- Utilizar **casting** cuando sea necesario para acceder a características específicas de determinados tipos de cartas.
+
+- Permitir activar una carta seleccionada por el jugador.
+
+- Una carta solamente podrá activarse si cumple las condiciones correspondientes a su tipo.
+
+- El sistema debe controlar la energía disponible del jugador.
+
+- Cada carta debe consumir su costo de energía al ser activada.
+
+- No permitir activar una carta cuando el jugador no tenga suficiente energía.
+
+- Implementar reglas diferentes para los tipos de cartas. Por ejemplo, una carta de ataque puede modificar el poder ofensivo, una carta de defensa puede proporcionar protección y una carta de habilidad puede producir un efecto especial.
+
+- Permitir consultar las estadísticas generales del mazo.
+
+- Las estadísticas deben incluir como mínimo:
+  - Cantidad de cartas.
+  - Costo total de energía.
+  - Costo promedio de energía.
+  - Cantidad de cartas de cada tipo.
+  - Cantidad de cartas por rareza.
+
+- El programa debe utilizar un menú interactivo.
+
+- El menú debe permitir como mínimo:
+  - Registrar carta.
+  - Mostrar cartas disponibles.
+  - Agregar carta al mazo.
+  - Eliminar carta del mazo.
+  - Buscar carta.
+  - Mostrar mazo.
+  - Activar carta.
+  - Mostrar estadísticas del mazo.
+  - Salir.
+
+- Validar las entradas proporcionadas por el usuario.
+
+- Controlar situaciones como:
+  - Identificador repetido.
+  - Carta inexistente.
+  - Mazo lleno.
+  - Mazo vacío.
+  - Energía insuficiente.
+  - Opción de menú inválida.
+  - Valores numéricos inválidos.
+  - Intentar realizar una operación que no corresponda al tipo de carta.
+
+- El programa debe utilizar arreglos para almacenar las cartas.
+
+# 4. Restricciones
+
+- El lenguaje debe ser **Java**.
+
+- Utilizar únicamente los conceptos estudiados hasta el nivel indicado.
+
+- Utilizar:
+  - Clases.
+  - Objetos.
+  - Atributos.
+  - Métodos.
+  - Constructores.
+  - Sobrecarga.
+  - `this`.
+  - Encapsulamiento.
+  - Getters y setters.
+  - Herencia.
+  - `super`.
+  - `@Override`.
+  - Polimorfismo.
+  - Casting.
+  - Clases abstractas.
+  - Métodos abstractos.
+  - Interfaces.
+  - Arreglos.
+
+- Utilizar una clase abstracta como base para los diferentes tipos de cartas.
+
+- Utilizar al menos una interfaz implementada por más de un tipo de carta.
+
+- Utilizar polimorfismo para almacenar y procesar diferentes tipos de cartas mediante referencias de la clase base.
+
+- No utilizar `ArrayList`, `HashMap` u otras colecciones para reemplazar los arreglos.
+
+- No utilizar frameworks externos.
+
+- No utilizar una biblioteca que resuelva directamente la gestión del mazo o las búsquedas requeridas.
+
+- La lógica para validar límites, duplicados, búsquedas, energía y reglas de las cartas debe ser desarrollada por el estudiante.
+
+- El programa debe ejecutarse desde consola.
+
+- La solución debe estar organizada utilizando métodos y clases, evitando concentrar toda la lógica en `main`.

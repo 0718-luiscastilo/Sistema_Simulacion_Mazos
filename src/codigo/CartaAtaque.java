@@ -1,6 +1,6 @@
 package codigo;
 
-public class CartaAtaque extends Carta{
+public class CartaAtaque extends Carta {
     private int danio;
     private String tipoAtaque;
     private String objetivo;
@@ -59,5 +59,7 @@ public class CartaAtaque extends Carta{
         danio = 15;
         System.out.println("La carta " + getNombre() + "realiza un ataque");
         System.out.println("Daño causado: " + danio);
-    } 
+    }
+    
+
 }

@@ -1,6 +1,6 @@
 package codigo;
 
-public class CartaHabilidad extends Carta {
+public class CartaHabilidad extends Carta implements Activable {
     private String habilidad;
     private int efecto;
     private int duracion;
@@ -56,10 +56,10 @@ public class CartaHabilidad extends Carta {
         System.out.println("Duracion: " + duracion);
         System.out.println("---------------------------");
     }
-    public void activarHabilidad() {
-
+    @Override
+    public void activar() {
         System.out.println("La carta " + getNombre() + " activa la habilidad " + habilidad + ".");
         System.out.println("Efecto: recupera " + efecto + " puntos de vida.");
         System.out.println("Duracion: " + duracion + " turnos.");
-    }
+    } 
 }
