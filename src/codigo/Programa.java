@@ -3,25 +3,49 @@ package codigo;
 import java.util.Scanner;
 
 public class Programa{
-    static final int MAX_CARTAS =20;
+    static final int MAX_CARTAS = 20;
+    
+    
+    
     public static void main(String[] args) {
-        Scanner scaner = new Scanner(System.in);
-        int totalCartas = 0;
-        Carta[] cartas = new Carta[MAX_CARTAS];
-        CartaAtaque carta1 = new CartaAtaque("A001","Espada Fuego",3,"Rara","Disponible",25,"Fuego","Enemigo");
-        cartas[totalCartas] = carta1;
-        totalCartas++;
-        CartaDefensa carta2 = new CartaDefensa("D001","Escudo de Acero",2,"Comun","Disponible",20,"Fisica",2);
-        cartas[totalCartas] = carta2;
-        totalCartas++;
-        CartaHabilidad carta3 = new CartaHabilidad("H001","Curacion",4,"Epica","Disponible","Curacion",30,2);
-        cartas[totalCartas] = carta3;
-        totalCartas++;
-
-        for(int i =0; i<totalCartas;i++){
-            cartas[i].mostrarInformacion();
+    Scanner scaner = new Scanner(System.in);
+    Funciones funciones = new Funciones();
+    Carta[] cartas = new Carta[MAX_CARTAS];
+    int totalCartas = 0;
+    
+    int opcion;
+    do{
+        opcion = funciones.mostrarMenu();
+        switch (opcion) {
+            case 1:
+                funciones.mostrarTodasLasCartas(cartas, totalCartas);
+                break;
+            case 2:
+                funciones.buscarCarta(cartas, totalCartas);
+                break;
+            case 3:
+                funciones.agregarAlMazo(cartas, totalCartas);
+                break;
+            case 4:
+                funciones.eliminarDelMazo();
+                break;
+            case 5:
+                funciones.mostrarMazo();
+                break;
+            case 6:
+                funciones.mostrarEnergia();
+                break;
+            case 7:
+                funciones.activarCarta();
+                break;
+            case 8:
+                funciones.mostrarEstadisticasMazo();
+                break;
+            default:
+                System.out.println("Opción no válida.");
         }
-        scaner.close();
+    }while(opcion != 0);
+
     }
 
 }

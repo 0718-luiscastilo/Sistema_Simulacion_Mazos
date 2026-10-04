@@ -61,6 +61,16 @@ public abstract class Carta {
             this.estado = estado;
         }
     }
+    public void verificarEnergia(){
+        System.out.println("Carta: " + getNombre());
+        System.out.println("Costo: " + getCostoEnergia());
+        if(getCostoEnergia()  > 10){
+            System.out.println("No hay suficiente energia para jugar esta carta.");
+        }else{
+            System.out.println("Se puede jugar la carta.");
+        }
+    }
+    
     public abstract void mostrarInformacion();
     
 }
