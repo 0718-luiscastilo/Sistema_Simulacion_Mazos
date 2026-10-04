@@ -4,9 +4,6 @@ import java.util.Scanner;
 
 public class Programa{
     static final int MAX_CARTAS = 20;
-    
-    
-    
     public static void main(String[] args) {
     Scanner scaner = new Scanner(System.in);
     Funciones funciones = new Funciones();
