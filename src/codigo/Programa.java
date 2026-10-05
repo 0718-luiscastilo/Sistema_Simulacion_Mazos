@@ -15,33 +15,39 @@ public class Programa{
         opcion = funciones.mostrarMenu();
         switch (opcion) {
             case 1:
-                funciones.mostrarTodasLasCartas(cartas, totalCartas);
+                funciones.registrarCarta(cartas, totalCartas);
                 break;
             case 2:
-                funciones.buscarCarta(cartas, totalCartas);
+                funciones.mostrarTodasLasCartas(cartas, totalCartas);
                 break;
             case 3:
-                funciones.agregarAlMazo(cartas, totalCartas);
+                funciones.buscarCarta(cartas, totalCartas);
                 break;
             case 4:
-                funciones.eliminarDelMazo();
+                funciones.agregarAlMazo(cartas, totalCartas);
                 break;
             case 5:
-                funciones.mostrarMazo();
+                funciones.eliminarDelMazo();
                 break;
             case 6:
-                funciones.mostrarEnergia();
+                funciones.mostrarMazo();
                 break;
             case 7:
-                funciones.activarCarta();
+                funciones.mostrarEnergia();
                 break;
             case 8:
+                funciones.activarCarta();
+                break;
+            case 9:
                 funciones.mostrarEstadisticasMazo();
+                break;
+            case 10:
+                System.out.println("Saliendo del programa...");
                 break;
             default:
                 System.out.println("Opción no válida.");
         }
-    }while(opcion != 0);
+    }while(opcion != 10);
 
     }
 

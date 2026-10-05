@@ -11,6 +11,183 @@ public class Funciones {
 
 
     static Scanner scanner = new Scanner(System.in); 
+    public int registrarCarta(Carta[] cartas, int totalCartas) {
+        if (totalCartas >= 20) {
+            System.out.println("El catálogo está lleno. No se pueden registrar más cartas.");
+            return totalCartas;
+        }
+        System.out.println("===== REGISTRAR CARTA =====");
+        System.out.println("1. Carta de Ataque");
+        System.out.println("2. Carta de Defensa");
+        System.out.println("3. Carta de Habilidad");
+        System.out.print("Seleccione el tipo de carta: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Ingrese una opción válida.");
+            scanner.next();
+            System.out.print("Seleccione el tipo de carta: ");
+        }
+        int tipo = scanner.nextInt();
+        scanner.nextLine();
+        while (tipo < 1 || tipo > 3) {
+            System.out.println("Ingrese una opción válida.");
+            System.out.print("Seleccione el tipo de carta: ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Ingrese una opción válida.");
+                scanner.next();
+                System.out.print("Seleccione el tipo de carta: ");
+            }
+            tipo = scanner.nextInt();
+            scanner.nextLine();
+        }
+        System.out.print("Ingrese el identificador: ");
+        String identificador = scanner.nextLine();
+        while (identificador.isBlank()) {
+            System.out.println("El identificador no puede estar vacío.");
+            System.out.print("Ingrese el identificador: ");
+            identificador = scanner.nextLine();
+        }
+        for (int i = 0; i < totalCartas; i++) {
+            if (cartas[i].getIdentificador().equalsIgnoreCase(identificador)) {
+                System.out.println("El identificador ya existe.");
+                return totalCartas;
+            }
+        }
+        System.out.print("Ingrese el nombre: ");
+        String nombre = scanner.nextLine();
+        while (nombre.isBlank()) {
+            System.out.println("El nombre no puede estar vacío.");
+            System.out.print("Ingrese el nombre: ");
+            nombre = scanner.nextLine();
+        }
+        System.out.print("Ingrese el costo de energía: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Ingrese un número válido.");
+            scanner.next();
+            System.out.print("Ingrese el costo de energía: ");
+        }
+        int costoEnergia = scanner.nextInt();
+        while (costoEnergia < 0) {
+            System.out.println("El costo de energía no puede ser negativo.");
+            System.out.print("Ingrese el costo de energía: ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Ingrese un número válido.");
+                scanner.next();
+                System.out.print("Ingrese el costo de energía: ");
+            }
+            costoEnergia = scanner.nextInt();
+        }
+        scanner.nextLine();
+        System.out.print("Ingrese la rareza: ");
+        String rareza = scanner.nextLine();
+        while (rareza.isBlank()) {
+            System.out.println("La rareza no puede estar vacía.");
+            System.out.print("Ingrese la rareza: ");
+            rareza = scanner.nextLine();
+        }
+        System.out.print("Ingrese el estado: ");
+        String estado = scanner.nextLine();
+        while (estado.isBlank()) {
+            System.out.println("El estado no puede estar vacío.");
+            System.out.print("Ingrese el estado: ");
+            estado = scanner.nextLine();
+        }
+        Carta nuevaCarta;
+        switch (tipo) {
+            case 1:
+                System.out.print("Ingrese el daño: ");
+                while (!scanner.hasNextInt()) {
+                    System.out.println("Ingrese un número válido.");
+                    scanner.next();
+                    System.out.print("Ingrese el daño: ");
+                }
+                int danio = scanner.nextInt();
+                while (danio < 0) {
+                    System.out.println("El daño no puede ser negativo.");
+                    System.out.print("Ingrese el daño: ");
+                    danio = scanner.nextInt();
+                }
+                scanner.nextLine();
+                System.out.print("Ingrese el tipo de ataque: ");
+                String tipoAtaque = scanner.nextLine();
+                System.out.print("Ingrese el objetivo: ");
+                String objetivo = scanner.nextLine();
+                nuevaCarta = new CartaAtaque(identificador, nombre, costoEnergia, rareza, estado, danio,
+                    tipoAtaque, objetivo );
+                break;
+            case 2:
+                System.out.print("Ingrese la defensa: ");
+                while (!scanner.hasNextInt()) {
+                    System.out.println("Ingrese un número válido.");
+                    scanner.next();
+                    System.out.print("Ingrese la defensa: ");
+                }
+                int defensa = scanner.nextInt();
+                while (defensa < 0) {
+                    System.out.println("La defensa no puede ser negativa.");
+                    System.out.print("Ingrese la defensa: ");
+                    defensa = scanner.nextInt();
+                }
+                scanner.nextLine();
+                System.out.print("Ingrese el tipo de defensa: ");
+                String tipoDefensa = scanner.nextLine();
+                System.out.print("Ingrese la duración: ");
+                while (!scanner.hasNextInt()) {
+                    System.out.println("Ingrese un número válido.");
+                    scanner.next();
+                    System.out.print("Ingrese la duración: ");
+                }
+                int duracionDefensa = scanner.nextInt();
+                while (duracionDefensa < 0) {
+                    System.out.println("La duración no puede ser negativa.");
+                    System.out.print("Ingrese la duración: ");
+                    duracionDefensa = scanner.nextInt();
+                }
+                scanner.nextLine();
+                nuevaCarta = new CartaDefensa(identificador, nombre, costoEnergia, rareza, estado, defensa, 
+                    tipoDefensa, duracionDefensa);
+                break;
+            case 3:
+                System.out.print("Ingrese el nombre de la habilidad: ");
+                String habilidad = scanner.nextLine();
+                System.out.print("Ingrese el efecto: ");
+                while (!scanner.hasNextInt()) {
+                    System.out.println("Ingrese un número válido.");
+                    scanner.next();
+                    System.out.print("Ingrese el efecto: ");
+                }
+                int efecto = scanner.nextInt();
+                while (efecto < 0) {
+                    System.out.println("El efecto no puede ser negativo.");
+                    System.out.print("Ingrese el efecto: ");
+                    efecto = scanner.nextInt();
+                }
+                System.out.print("Ingrese la duración: ");
+                while (!scanner.hasNextInt()) {
+                    System.out.println("Ingrese un número válido.");
+                    scanner.next();
+                    System.out.print("Ingrese la duración: ");
+                }
+                int duracionHabilidad = scanner.nextInt();
+                while (duracionHabilidad < 0) {
+                    System.out.println("La duración no puede ser negativa.");
+                    System.out.print("Ingrese la duración: ");
+                    duracionHabilidad = scanner.nextInt();
+                }
+                scanner.nextLine();
+                nuevaCarta = new CartaHabilidad(identificador, nombre, costoEnergia, rareza, estado, habilidad,
+                    efecto, duracionHabilidad);
+                break;
+            default:
+                return totalCartas;
+        }
+        cartas[totalCartas] = nuevaCarta;
+        totalCartas++;
+        System.out.println("Carta registrada correctamente.");
+        System.out.println("Identificador: " + nuevaCarta.getIdentificador());
+        System.out.println("Nombre: " + nuevaCarta.getNombre());
+        System.out.println("Total de cartas registradas: " + totalCartas + "/20");
+        return totalCartas;
+    }
     void mostrarTodasLasCartas(Carta[] cartas, int totalCartas){
         if(totalCartas ==0){
             System.out.println("No hay cartas disponibles");
@@ -240,15 +417,15 @@ public class Funciones {
         int opcion;
         do {
             System.out.println("===== MENÚ DE OPCIONES =====");
-            System.out.println("1. Mostrar todas las cartas");  
-            System.out.println("2. Buscar carta por nombre");
-            System.out.println("3. Agregar carta al mazo");
-            System.out.println("4. Eliminar carta del mazo");
+            System.out.println("1. Registrar carta");
+            System.out.println("2. Mostrar todas las cartas");  
+            System.out.println("3. Buscar carta por nombre");
+            System.out.println("4. Agregar carta al mazo");
             System.out.println("5. Mostrar mazo del jugador");
             System.out.println("6. Mostrar energía actual");
             System.out.println("7. Activar carta");
             System.out.println("8. Mostrar estadísticas del mazo");
-            System.out.println("0. Salir");
+            System.out.println("9. Salir");
             System.out.print("Ingrese una opción: ");
             
             while(!scanner.hasNextInt()){
@@ -258,10 +435,10 @@ public class Funciones {
             }
             opcion = scanner.nextInt();
             scanner.nextLine(); // Limpiar el buffer de entrada
-            if(opcion < 0 || opcion > 8){
+            if(opcion < 1 || opcion > 9){
                 System.out.println("Ingrese una opción válida.");
             }
-        }while(opcion < 0 || opcion > 8);
+        }while(opcion < 1 || opcion > 9);
         return opcion;
     }
 }
