@@ -56,10 +56,8 @@ public class CartaAtaque extends Carta {
         System.out.println("---------------------------");
     }
     public void realizarAtaque(){
-        danio = 15;
         System.out.println("La carta " + getNombre() + "realiza un ataque");
         System.out.println("Daño causado: " + danio);
     }
-    
 
 }
